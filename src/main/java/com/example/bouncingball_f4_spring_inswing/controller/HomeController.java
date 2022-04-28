@@ -26,6 +26,17 @@ public class HomeController {
         InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
         FileCopyUtils.copy(inputStream, response.getOutputStream());
     }
+//open zip file from template
+    @GetMapping("/open_file")
+    public void open(HttpServletResponse response) throws IOException {
+        File file = new File("src/main/resources/templates/BallTech2-master.zip");
+        response.setContentType("application/zip");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
+        response.setContentLength((int) file.length());
+        InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
 }
 
 
