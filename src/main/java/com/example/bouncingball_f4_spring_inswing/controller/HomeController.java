@@ -19,7 +19,7 @@ public class HomeController {
    //downlowd video file from template
     @GetMapping("/download_file")
     public void download(HttpServletResponse response) throws IOException {
-        File file = new File("src/main/resources/templates/2022-04-27 15-27-29.mp4");
+        File file = new File("src/main/resources/templates/balls.mp4");
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
         response.setContentLength((int) file.length());
@@ -29,8 +29,8 @@ public class HomeController {
 //open zip file from template
     @GetMapping("/open_file")
     public void open(HttpServletResponse response) throws IOException {
-        File file = new File("src/main/resources/templates/BallTech2-master.zip");
-        response.setContentType("application/zip");
+        File file = new File("src/main/resources/templates/DvdBall.jar");
+        response.setContentType("application/jar");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
         response.setContentLength((int) file.length());
         InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
